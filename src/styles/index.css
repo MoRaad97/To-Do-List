@@ -64,7 +64,20 @@ span {
   background-color: #e5e5e5;
 display: block;
 text-align: center;
+
 }
 .clear {
   background-color: transparent;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+}
+
+i {
+  font-size: 14px;
+}
+
+
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
 }

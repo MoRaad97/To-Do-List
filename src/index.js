@@ -1,4 +1,4 @@
-
+import './styles/all.min.css'
 import './styles/index.css';
 
 const listInfo = [{
@@ -15,7 +15,7 @@ const listInfo = [{
 
 const listTarget = document.querySelector('.form');
 
-let listMain = `<li class="title"><span>today to do</span><span>arrows</span></li><li class="input"><input class="ph" type="text" name="" id="placeholder" placeholder="Add to your list.."> <p class="enter">Enter</p></li>`;
+let listMain = `<li class="title"><span>today to do</span><span><i class="fa-solid fa-arrow-rotate-left"></i></span></li><li class="input"><input class="ph" type="text" name="" id="placeholder" placeholder="Add to your list.."> <p class="enter"><i class="fa-solid fa-arrow-left-long"></i></p></li>`;
 
 let listTasks= '';
 
@@ -24,7 +24,7 @@ let listClear = `<li class="clear-li"><button class="clear">Clear All Completed<
   
   const addList = (e) => {
         e.forEach((el) => {
-        listTasks += `<li><div><input type="checkbox"><span>${el.description}</span></div><span>dots</span></li>`;
+        listTasks += `<li><div><input type="checkbox"><span>${el.description}</span></div><span><i class="fa-solid fa-ellipsis-vertical"></i></span></li>`;
     });
     listTarget.innerHTML = listMain + listTasks + listClear;
   };

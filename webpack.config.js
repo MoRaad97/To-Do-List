@@ -9,14 +9,18 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js'
     },
+    devServer: {
+        static: {
+            directory: path.resolve(__dirname, 'dist')
+        }
+    },
     module: {
         rules: [
             {
-               test: /\.scss$/, 
+               test: /\.css$/, 
                use: [
                    'style-loader',
                    'css-loader',
-                   'sass-loader'
                ]
             }
         ]

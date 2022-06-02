@@ -35,11 +35,6 @@ li {
   justify-content: space-between;
 }
 
-/* .input {
-  display: flex;
-  justify-content: space-between;
-} */
-
 .ph,
 .ph::placeholder {
   font-family: 'Times New Roman', Times, serif;

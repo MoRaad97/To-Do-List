@@ -34,7 +34,7 @@ let taskList = document.querySelector('.tasks-list');
     let taskListSave = taskList.innerHTML;
         taskArray.forEach((task) => {
             let taskListHtml = `<li class="task completed" id="${task.id}">
-            <div><input type="checkbox"/><span>${task.title}</span></div>
+            <div><input type="checkbox"/> <input class="ph" type="text" placeholder="Add to your list.." value = "${task.title}" /></div>
             <i class="fa-solid fa-ellipsis-vertical"></i>
           </li>`;
           taskList.innerHTML = taskListSave + taskListHtml  ;

@@ -1,8 +1,5 @@
 // TaskArray
 let taskArray = JSON.parse(localStorage.getItem('tasks')) || [];
-// if (localStorage.getItem('tasks')){
-//   taskArray = )
-// }
 
 // Create Task in the page
 const addTaskToPage = (taskArray) => {

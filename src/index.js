@@ -1,15 +1,11 @@
 import './styles/index.css'
 import './styles/all.min.css'
-import {addTaskToArray,getTaskFromStore,deleteTaskWith,addTaskToPage} from "./add-remove.js";
-export {taskArray}
+import {addTaskToArray,getTaskFromStore,deleteTaskWith,} from "./add-remove.js";
 
 
 
 
-let taskArray = [];
-// if (localStorage.getItem('tasks')){
-//   taskArray = JSON.parse(localStorage.getItem('tasks'))
-// }
+
 
 let input = document.querySelector('.ph')
 let submit = document.querySelector('.enter')
@@ -37,7 +33,7 @@ submit.onclick = ()=> {
   taskEvent.addEventListener('click',(e) =>   {
   if (e.target.classList.contains("fa-trash-can")) {
     // delete from local storage
-    localStorage.clear();
+    // localStorage.clear();
     deleteTaskWith(e.target.parentElement.getAttribute("task-id"));
     // delete from page 
     e.target.parentElement.remove()

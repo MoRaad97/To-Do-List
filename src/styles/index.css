@@ -20,12 +20,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: fit-content;
+  height: auto;
 }
 
 h1 {
-text-align: center;
-margin-bottom: 100px;
+  text-align: center;
+  margin-bottom: 100px;
 }
 
 .form {

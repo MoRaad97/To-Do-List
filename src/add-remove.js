@@ -1,37 +1,14 @@
-/* eslint-disable no-use-before-define, eqeqeq */
-export {
-  addTaskToArray, addTaskToPage, getTaskFromStore, deleteTaskWith,
-};
-
 // TaskArray
 let taskArray = JSON.parse(localStorage.getItem('tasks')) || [];
 // if (localStorage.getItem('tasks')){
 //   taskArray = )
 // }
 
-// Ul list = Tasks List
-const taskList = document.querySelector('.tasks-list');
-
-// Add Task To Array
-const addTaskToArray = (taskText) => {
-  // task info
-  const task = {
-    id: taskArray.length + 1,
-    title: taskText,
-    completed: false,
-  };
-
-  // Push task to array
-  taskArray.push(task);
-  // Add task to page
-  addTaskToPage(taskArray);
-  // Add task to local storage
-  addTaskToStore(taskArray);
-};
-
 // Create Task in the page
 const addTaskToPage = (taskArray) => {
-//   // Add task to the page
+  // Ul list = Tasks List
+  const taskList = document.querySelector('.tasks-list');
+  //   // Add task to the page
   let taskListSave = '';
 
   taskArray.forEach((task) => {
@@ -64,4 +41,25 @@ const deleteTaskWith = (taskId) => {
     });
     addTaskToStore(taskArray);
   }
+};
+
+// Add Task To Array
+const addTaskToArray = (taskText) => {
+  // task info
+  const task = {
+    id: taskArray.length + 1,
+    title: taskText,
+    completed: false,
+  };
+
+  // Push task to array
+  taskArray.push(task);
+  // Add task to page
+  addTaskToPage(taskArray);
+  // Add task to local storage
+  addTaskToStore(taskArray);
+};
+
+export {
+  addTaskToArray, addTaskToPage, getTaskFromStore, deleteTaskWith,
 };

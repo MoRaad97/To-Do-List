@@ -89,3 +89,7 @@ input[type="checkbox"] {
 .completed {
   color: red;
 }
+
+.tasks-con {
+  display: block;
+}

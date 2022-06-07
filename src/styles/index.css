@@ -5,19 +5,27 @@
   padding: 0;
 }
 
+.hidden {
+  display: none !important;
+}
+
 body {
   background-color: rgb(238, 238, 238);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 80vh;
   font-family: 'Times New Roman', Times, serif;
   font-size: 18px;
 }
 
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+
 h1 {
-  position: absolute;
-  top: 0;
+  text-align: center;
+  margin-bottom: 100px;
 }
 
 .form {
@@ -45,6 +53,14 @@ li {
   font-family: 'Times New Roman', Times, serif;
   font-size: 18px;
   flex: 1;
+  text-indent: 10px;
+}
+
+.edit,
+.edit::placeholder {
+  width: 380px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
   text-indent: 10px;
 }
 
@@ -76,4 +92,12 @@ i {
 input[type="checkbox"] {
   width: 16px;
   height: 16px;
+}
+
+.completed {
+  color: red;
+}
+
+.tasks-container {
+  display: block;
 }

@@ -1,31 +1,51 @@
-import './styles/all.min.css';
 import './styles/index.css';
+import './styles/all.min.css';
+import {
+  addTaskToArray, getTaskFromStore, deleteTaskWith, editTask,
+} from './add-remove.js';
 
-const listInfo = [{
-  index: 0,
-  description: 'studying',
-  completed: true,
-},
-{
-  index: 1,
-  description: 'Finish Day 2 project',
-  completed: false,
-},
-];
+const input = document.querySelector('.ph');
+const submit = document.querySelector('.enter');
+const taskEvent = document.body.querySelector('.tasks-list');
 
-const listTarget = document.querySelector('.form');
+// get task from local storage on load
+getTaskFromStore();
 
-const listMain = '<li class="title"><span>today to do</span><span><i class="fa-solid fa-arrow-rotate-left"></i></span></li><li class="input"><input class="ph" type="text" name="" id="placeholder" placeholder="Add to your list.."> <p class="enter"><i class="fa-solid fa-arrow-left-long"></i></p></li>';
+// Add Task Submit Action
+// click Enter icon
+submit.addEventListener('click', () => {
+  if (input.value !== '') {
+    addTaskToArray(input.value);
+    input.value = '';
+  }
+});
+// press Enter
+input.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    submit.click();
+  }
+});
 
-let listTasks = '';
+// delete
+taskEvent.addEventListener('click', (e) => {
+  if (e.target.classList.contains('fa-trash-can')) {
+    // delete from page
+    e.target.parentElement.remove();
+    // delete from local storage
+    deleteTaskWith(e.target.parentElement.getAttribute('task-id'));
+  }
+});
 
-const listClear = '<li class="clear-li"><button class="clear">Clear All Completed</button></li>';
-
-const addList = (e) => {
-  e.forEach((el) => {
-    listTasks += `<li><div><input type="checkbox"><span>${el.description}</span></div><span><i class="fa-solid fa-ellipsis-vertical"></i></span></li>`;
-  });
-  listTarget.innerHTML = listMain + listTasks + listClear;
-};
-
-addList(listInfo);
+// edit function
+taskEvent.addEventListener('click', (e) => {
+  if (e.target.classList.contains('edit')) {
+    e.target.addEventListener('blur', (e) => {
+      if (e.target.value === '') {
+        deleteTaskWith(e.target.parentElement.parentElement.getAttribute('task-id'));
+        e.target.parentElement.remove();
+      } else {
+        editTask(e.target.parentElement.parentElement.getAttribute('task-id'), e.target.value);
+      }
+    });
+  }
+});

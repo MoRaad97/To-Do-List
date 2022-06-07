@@ -58,15 +58,15 @@ const addTaskToArray = (taskText) => {
   addTaskToStore(taskArray);
 };
 
-const editTask = (taskId,e) => {
+const editTask = (taskId, e) => {
   taskArray.forEach((task) => {
     if (task.id === +taskId) {
-      let index = taskArray.indexOf(task)
+      const index = taskArray.indexOf(task);
       task.title = e;
       taskArray[index] = task;
     }
-  })
-  addTaskToStore(taskArray)
+  });
+  addTaskToStore(taskArray);
 };
 
 export {

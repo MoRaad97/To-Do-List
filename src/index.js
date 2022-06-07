@@ -43,8 +43,8 @@ taskEvent.addEventListener('click', (e) => {
       if (e.target.value === '') {
         deleteTaskWith(e.target.parentElement.parentElement.getAttribute('task-id'));
         e.target.parentElement.remove();
-      } else {     
-        editTask(e.target.parentElement.parentElement.getAttribute('task-id'),e.target.value);
+      } else {
+        editTask(e.target.parentElement.parentElement.getAttribute('task-id'), e.target.value);
       }
     });
   }

@@ -10,7 +10,7 @@ const addTaskToPage = (taskArray) => {
 
   taskArray.forEach((task) => {
     const taskListHtml = `<li class="task" task-id="${task.id}">
-        <div><input type="checkbox"/> <input class="ph" type="text" placeholder="Add Task" value = "${task.title}" /></div>
+        <div><input type="checkbox"/> <input class="edit" type="text" placeholder="Add Task" value = "${task.title}" /></div>
        <i class="fa-solid fa-trash-can del"></i>
       </li>`;
     taskListSave += taskListHtml;
@@ -34,10 +34,12 @@ const deleteTaskWith = (taskId) => {
   if (taskArray !== null) {
     taskArray = taskArray.filter((task) => task.id != taskId);
     taskArray.forEach((e, index) => {
-      e.id = index + 1;
+      e.id =  index + 1;
     });
     addTaskToStore(taskArray);
+    addTaskToPage(taskArray)
   }
+  return taskArray
 };
 
 // Add Task To Array
@@ -45,7 +47,7 @@ const addTaskToArray = (taskText) => {
   // task info
   const task = {
     id: taskArray.length + 1,
-    title: taskText,
+    title: taskText.trim(),
     completed: false,
   };
 
@@ -57,6 +59,12 @@ const addTaskToArray = (taskText) => {
   addTaskToStore(taskArray);
 };
 
+const editTask = (e) => {
+  addTaskToArray(e.target.value.trim());
+  deleteTaskWith(e.target.parentElement.parentElement.getAttribute('task-id'));
+  e.target.parentElement.remove();
+}
+
 export {
-  addTaskToArray, addTaskToPage, getTaskFromStore, deleteTaskWith,
+  addTaskToArray, addTaskToPage, getTaskFromStore, deleteTaskWith, editTask
 };

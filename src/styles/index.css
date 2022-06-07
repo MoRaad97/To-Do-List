@@ -54,6 +54,15 @@ li {
   font-size: 18px;
   flex: 1;
   text-indent: 10px;
+
+}
+
+.edit,
+.edit::placeholder {
+  width: 380px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  text-indent: 10px;
 }
 
 .enter {

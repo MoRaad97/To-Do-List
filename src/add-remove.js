@@ -32,14 +32,14 @@ const getTaskFromStore = () => {
 
 const deleteTaskWith = (taskId) => {
   if (taskArray !== null) {
-    taskArray = taskArray.filter((task) => task.id != taskId);
+    taskArray = taskArray.filter((task) => task.id !== +taskId);
     taskArray.forEach((e, index) => {
-      e.id =  index + 1;
+      e.id = index + 1;
     });
     addTaskToStore(taskArray);
-    addTaskToPage(taskArray)
+    addTaskToPage(taskArray);
   }
-  return taskArray
+  return taskArray;
 };
 
 // Add Task To Array
@@ -63,8 +63,8 @@ const editTask = (e) => {
   addTaskToArray(e.target.value.trim());
   deleteTaskWith(e.target.parentElement.parentElement.getAttribute('task-id'));
   e.target.parentElement.remove();
-}
+};
 
 export {
-  addTaskToArray, addTaskToPage, getTaskFromStore, deleteTaskWith, editTask
+  addTaskToArray, addTaskToPage, getTaskFromStore, deleteTaskWith, editTask,
 };

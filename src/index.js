@@ -1,10 +1,11 @@
 import './styles/index.css';
 import './styles/all.min.css';
-import { addTaskToArray, getTaskFromStore, deleteTaskWith, editTask } from './add-remove.js';
+import {
+  addTaskToArray, getTaskFromStore, deleteTaskWith, editTask,
+} from './add-remove.js';
 
 const input = document.querySelector('.ph');
 const submit = document.querySelector('.enter');
-const edit = document.querySelector('.edit');
 const taskEvent = document.body.querySelector('.tasks-list');
 
 // get task from local storage on load
@@ -12,7 +13,7 @@ getTaskFromStore();
 
 // Add Task Submit Action
 // click Enter icon
-submit.addEventListener('click',  () => {
+submit.addEventListener('click', () => {
   if (input.value !== '') {
     addTaskToArray(input.value);
     input.value = '';
@@ -30,7 +31,7 @@ taskEvent.addEventListener('click', (e) => {
   if (e.target.classList.contains('fa-trash-can')) {
     // delete from page
     e.target.parentElement.remove();
-      // delete from local storage
+    // delete from local storage
     deleteTaskWith(e.target.parentElement.getAttribute('task-id'));
   }
 });
@@ -39,13 +40,12 @@ taskEvent.addEventListener('click', (e) => {
 taskEvent.addEventListener('click', (e) => {
   if (e.target.classList.contains('edit')) {
     e.target.addEventListener('change', (e) => {
-      if (e.target.value === "") {
+      if (e.target.value === '') {
         deleteTaskWith(e.target.parentElement.parentElement.getAttribute('task-id'));
         e.target.parentElement.remove();
-      }else {
-        editTask(e)
+      } else {
+        editTask(e);
       }
-    
-    })
+    });
   }
 });

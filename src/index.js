@@ -39,12 +39,12 @@ taskEvent.addEventListener('click', (e) => {
 // edit function
 taskEvent.addEventListener('click', (e) => {
   if (e.target.classList.contains('edit')) {
-    e.target.addEventListener('change', (e) => {
+    e.target.addEventListener('blur', (e) => {
       if (e.target.value === '') {
         deleteTaskWith(e.target.parentElement.parentElement.getAttribute('task-id'));
         e.target.parentElement.remove();
-      } else {
-        editTask(e);
+      } else {     
+        editTask(e.target.parentElement.parentElement.getAttribute('task-id'),e.target.value);
       }
     });
   }

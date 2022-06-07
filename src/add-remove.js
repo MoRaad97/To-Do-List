@@ -1,6 +1,5 @@
 // TaskArray
 let taskArray = JSON.parse(localStorage.getItem('tasks')) || [];
-
 // Create Task in the page
 const addTaskToPage = (taskArray) => {
   // Ul list = Tasks List
@@ -47,7 +46,7 @@ const addTaskToArray = (taskText) => {
   // task info
   const task = {
     id: taskArray.length + 1,
-    title: taskText.trim(),
+    title: taskText,
     completed: false,
   };
 
@@ -59,10 +58,15 @@ const addTaskToArray = (taskText) => {
   addTaskToStore(taskArray);
 };
 
-const editTask = (e) => {
-  addTaskToArray(e.target.value.trim());
-  deleteTaskWith(e.target.parentElement.parentElement.getAttribute('task-id'));
-  e.target.parentElement.remove();
+const editTask = (taskId,e) => {
+  taskArray.forEach((task) => {
+    if (task.id === +taskId) {
+      let index = taskArray.indexOf(task)
+      task.title = e;
+      taskArray[index] = task;
+    }
+  })
+  addTaskToStore(taskArray)
 };
 
 export {

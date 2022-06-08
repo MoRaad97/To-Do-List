@@ -20,7 +20,7 @@ const addTaskToPage = (taskArray) => {
   taskList.innerHTML = taskListSave;
 
   completeStateChange(taskArray);
-  addCheckedAttFromStore(taskArray)
+  addCheckedAttFromStore(taskArray);
 };
 
 // Add task to local storage Function

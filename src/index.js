@@ -1,7 +1,7 @@
 import './styles/index.css';
 import './styles/all.min.css';
 import {
-  addTaskToArray, getTaskFromStore, deleteTaskWith, editTask,
+  addTaskToArray, getTaskFromStore, deleteTaskWith, editTask, clearAllComplete,
 } from './add-remove.js';
 
 const input = document.querySelector('.ph');
@@ -48,4 +48,17 @@ taskEvent.addEventListener('click', (e) => {
       }
     });
   }
+});
+
+taskEvent.addEventListener('click', (e) => {
+  if (e.target.hasAttribute('checked')) {
+    e.target.removeAttribute('checked');
+  } else if (e.target.classList.contains('check-input')) {
+    e.target.setAttribute('checked', '');
+  }
+});
+
+const clearBtn = document.getElementById('clear');
+clearBtn.addEventListener('click', () => {
+  clearAllComplete();
 });

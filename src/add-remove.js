@@ -1,4 +1,5 @@
-import { completeStateChange, addCheckedAttFromStore, clearFunction } from "./complete.js";
+/* eslint import/no-cycle: [0, { maxDepth: 2 }] */
+import { completeStateChange, addCheckedAttFromStore, clearFunction } from './complete.js';
 // TaskArray
 let taskArray = JSON.parse(localStorage.getItem('tasks')) || [];
 
@@ -6,8 +7,6 @@ let taskArray = JSON.parse(localStorage.getItem('tasks')) || [];
 const addTaskToPage = (taskArray) => {
   // Ul list = Tasks List
   const taskList = document.querySelector('.tasks-list');
-
-
 
   //   // Add task to the page
   let taskListSave = '';
@@ -20,11 +19,9 @@ const addTaskToPage = (taskArray) => {
   });
   taskList.innerHTML = taskListSave;
 
-  completeStateChange(taskArray)
-  // addCheckedAtt(taskArray)                   
-}
-
-
+  completeStateChange(taskArray);
+  // addCheckedAtt(taskArray)
+};
 
 // Add task to local storage Function
 const addTaskToStore = (taskArray) => {
@@ -38,7 +35,7 @@ const getTaskFromStore = () => {
   if (data !== null) {
     const tasks = JSON.parse(data);
     addTaskToPage(tasks);
-    addCheckedAttFromStore(tasks)
+    addCheckedAttFromStore(tasks);
   }
 };
 
@@ -77,7 +74,7 @@ const editTask = (taskId, e) => {
   taskArray.forEach((task) => {
     if (task.id === +taskId) {
       const index = taskArray.indexOf(task);
-      // changing the task description and task array 
+      // changing the task description and task array
       task.title = e;
       taskArray[index] = task;
     }
@@ -87,11 +84,14 @@ const editTask = (taskId, e) => {
 };
 
 const clearAllComplete = () => {
-  addTaskToPage(clearFunction(taskArray))
-  window.localStorage.clear()
-  addTaskToStore(clearFunction(taskArray))
-  taskArray = clearFunction(taskArray)
-}
+  addTaskToPage(clearFunction(taskArray));
+  window.localStorage.clear();
+  addTaskToStore(clearFunction(taskArray));
+  taskArray = clearFunction(taskArray);
+};
+
 export {
-  addTaskToArray, addTaskToPage, getTaskFromStore, deleteTaskWith, editTask, addTaskToStore, taskArray, clearAllComplete
+  addTaskToArray, addTaskToPage,
+  getTaskFromStore, deleteTaskWith,
+  editTask, addTaskToStore, clearAllComplete,
 };

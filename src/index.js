@@ -1,7 +1,8 @@
 import './styles/index.css';
 import './styles/all.min.css';
-import { addTaskToArray, getTaskFromStore, deleteTaskWith, editTask, taskArray, addTaskToPage, addTaskToStore, clearAllComplete } from './add-remove.js';
-import { clearFunction } from './complete.js';
+import {
+  addTaskToArray, getTaskFromStore, deleteTaskWith, editTask, clearAllComplete,
+} from './add-remove.js';
 
 const input = document.querySelector('.ph');
 const submit = document.querySelector('.enter');
@@ -49,19 +50,15 @@ taskEvent.addEventListener('click', (e) => {
   }
 });
 
-
 taskEvent.addEventListener('click', (e) => {
   if (e.target.hasAttribute('checked')) {
-    e.target.removeAttribute('checked')
+    e.target.removeAttribute('checked');
   } else if (e.target.classList.contains('check-input')) {
-    e.target.setAttribute('checked', "")
+    e.target.setAttribute('checked', '');
   }
+});
 
-})
-
-
-let clearBtn = document.getElementById('clear')
+const clearBtn = document.getElementById('clear');
 clearBtn.addEventListener('click', () => {
-  clearAllComplete()
-}
-)
+  clearAllComplete();
+});

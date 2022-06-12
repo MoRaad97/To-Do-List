@@ -13,7 +13,7 @@
 
 ## Live Demo
 
-[Live Demo Link]( https://moraad97.github.io/To-Do-List/)
+[Live Demo Link](https://moraad97.github.io/To-Do-List)
 
 ## Getting Started
 

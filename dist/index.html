@@ -5,9 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/index.css" />
     <title>To-Do List</title>
-    <script defer src="./master.js"></script>
-  </head>
+  <script defer src="index.js"></script></head>
   <body>
-    <ul class="form"></ul>
+    <h1>To-Do List</h1>
+    <div class="flex">
+      <ul class="form">
+        <!-- title class -->
+        <li class="title">
+          <span>today to do</span
+          ><span><i class="fa-solid fa-arrow-rotate-left"></i></span>
+        </li>
+        <!-- input class -->
+        <li class="input">
+          <input class="ph" type="text" placeholder="Add to your list.." />
+          <p class="enter"><i class="fa-solid fa-arrow-left-long"></i></p>
+        </li>
+        <!-- tasks class -->
+        <li class="tasks-container"><ul class="tasks-list"></ul></li>
+
+        <!-- clear class -->
+        <li class="clear-li">
+          <button id="clear">Clear All Completed</button>
+        </li>
+      </ul>
+    </div>
   </body>
 </html>

@@ -1,5 +1,9 @@
 /* eslint import/no-cycle: [0, { maxDepth: 2 }] */
-import { completeStateChange, addCheckedAttFromStore, clearFunction } from './complete.js';
+import {
+  completeStateChange,
+  addCheckedAttFromStore,
+  clearFunction,
+} from './complete.js';
 // TaskArray
 let taskArray = JSON.parse(localStorage.getItem('tasks')) || [];
 
@@ -54,7 +58,7 @@ const deleteTaskWith = (taskId) => {
 // delete Item "function"
 const deleteItem = (item) => {
   item.parentElement.remove();
-}
+};
 
 // Add Task To Array of tasks Function
 const addTaskToArray = (taskText) => {
@@ -95,9 +99,14 @@ const clearAllComplete = () => {
 };
 
 export {
-  addTaskToArray, addTaskToPage,
-  getTaskFromStore, deleteTaskWith,
-  editTask, addTaskToStore, clearAllComplete,deleteItem
+  addTaskToArray,
+  addTaskToPage,
+  getTaskFromStore,
+  deleteTaskWith,
+  editTask,
+  addTaskToStore,
+  clearAllComplete,
+  deleteItem,
 };
 
 // module.exports = addTaskToPage;

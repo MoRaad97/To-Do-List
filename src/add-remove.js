@@ -3,7 +3,7 @@ import { completeStateChange, addCheckedAttFromStore, clearFunction } from './co
 // TaskArray
 let taskArray = JSON.parse(localStorage.getItem('tasks')) || [];
 
-// Create Task in the page Function
+/* Create Task in the page Function */
 const addTaskToPage = (taskArray) => {
   // Ul list = Tasks List
   const taskList = document.querySelector('.tasks-list');
@@ -18,7 +18,6 @@ const addTaskToPage = (taskArray) => {
     taskListSave += taskListHtml;
   });
   taskList.innerHTML = taskListSave;
-
   completeStateChange(taskArray);
   addCheckedAttFromStore(taskArray);
 };
@@ -51,6 +50,11 @@ const deleteTaskWith = (taskId) => {
   }
   return taskArray;
 };
+
+// delete Item "function"
+const deleteItem = (item) => {
+  item.parentElement.remove();
+}
 
 // Add Task To Array of tasks Function
 const addTaskToArray = (taskText) => {
@@ -93,5 +97,7 @@ const clearAllComplete = () => {
 export {
   addTaskToArray, addTaskToPage,
   getTaskFromStore, deleteTaskWith,
-  editTask, addTaskToStore, clearAllComplete,
+  editTask, addTaskToStore, clearAllComplete,deleteItem
 };
+
+// module.exports = addTaskToPage;

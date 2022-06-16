@@ -38,7 +38,7 @@ describe('edit & complete & clear all Tests', () => {
     // ِِAssert
     expect(storage[0].completed).toBeTruthy();
   });
-  
+
   //    Test Three
   test('clearAllCompleted Tasks Test', () => {
     // Arranged

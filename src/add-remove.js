@@ -2,7 +2,6 @@
 
 import { addCheckedAttFromStore, clearFunction } from './complete.js';
 
-
 // TaskArray
 let taskArray = JSON.parse(localStorage.getItem('tasks')) || [];
 
@@ -101,4 +100,3 @@ export {
   getTaskFromStore, deleteTaskWith,
   editTask, addTaskToStore, clearAllComplete, deleteItem,
 };
-

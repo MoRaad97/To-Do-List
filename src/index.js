@@ -1,7 +1,13 @@
+/* eslint-disable comma-dangle */
 import './styles/index.css';
 import './styles/all.min.css';
 import {
-  addTaskToArray, getTaskFromStore, deleteTaskWith, editTask, clearAllComplete,
+  addTaskToArray,
+  getTaskFromStore,
+  deleteTaskWith,
+  editTask,
+  clearAllComplete,
+  deleteItem,
 } from './add-remove.js';
 
 const input = document.querySelector('.ph');
@@ -30,7 +36,8 @@ input.addEventListener('keypress', (e) => {
 taskEvent.addEventListener('click', (e) => {
   if (e.target.classList.contains('fa-trash-can')) {
     // delete from page
-    e.target.parentElement.remove();
+    // e.target.parentElement.remove();
+    deleteItem(e.target);
     // delete from local storage
     deleteTaskWith(e.target.parentElement.getAttribute('task-id'));
   }
@@ -41,10 +48,15 @@ taskEvent.addEventListener('click', (e) => {
   if (e.target.classList.contains('edit')) {
     e.target.addEventListener('blur', (e) => {
       if (e.target.value === '') {
-        deleteTaskWith(e.target.parentElement.parentElement.getAttribute('task-id'));
+        deleteTaskWith(
+          e.target.parentElement.parentElement.getAttribute('task-id')
+        );
         e.target.parentElement.remove();
       } else {
-        editTask(e.target.parentElement.parentElement.getAttribute('task-id'), e.target.value);
+        editTask(
+          e.target.parentElement.parentElement.getAttribute('task-id'),
+          e.target.value
+        );
       }
     });
   }

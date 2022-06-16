@@ -1,9 +1,13 @@
 /* eslint import/no-cycle: [0, { maxDepth: 2 }] */
-import { completeStateChange, addCheckedAttFromStore, clearFunction } from './complete.js';
+import {
+  completeStateChange,
+  addCheckedAttFromStore,
+  clearFunction,
+} from './complete.js';
 // TaskArray
 let taskArray = JSON.parse(localStorage.getItem('tasks')) || [];
 
-// Create Task in the page Function
+/* Create Task in the page Function */
 const addTaskToPage = (taskArray) => {
   // Ul list = Tasks List
   const taskList = document.querySelector('.tasks-list');
@@ -18,7 +22,6 @@ const addTaskToPage = (taskArray) => {
     taskListSave += taskListHtml;
   });
   taskList.innerHTML = taskListSave;
-
   completeStateChange(taskArray);
   addCheckedAttFromStore(taskArray);
 };
@@ -50,6 +53,11 @@ const deleteTaskWith = (taskId) => {
     addTaskToPage(taskArray);
   }
   return taskArray;
+};
+
+// delete Item "function"
+const deleteItem = (item) => {
+  item.parentElement.remove();
 };
 
 // Add Task To Array of tasks Function
@@ -91,7 +99,14 @@ const clearAllComplete = () => {
 };
 
 export {
-  addTaskToArray, addTaskToPage,
-  getTaskFromStore, deleteTaskWith,
-  editTask, addTaskToStore, clearAllComplete,
+  addTaskToArray,
+  addTaskToPage,
+  getTaskFromStore,
+  deleteTaskWith,
+  editTask,
+  addTaskToStore,
+  clearAllComplete,
+  deleteItem,
 };
+
+// module.exports = addTaskToPage;

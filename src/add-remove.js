@@ -1,9 +1,9 @@
 /* eslint import/no-cycle: [0, { maxDepth: 2 }] */
-import { completeStateChange, addCheckedAttFromStore, clearFunction } from './complete.js';
+import { addCheckedAttFromStore, clearFunction } from './complete.js';
 // TaskArray
 let taskArray = JSON.parse(localStorage.getItem('tasks')) || [];
 
-// Create Task in the page Function
+/* Create Task in the page Function */
 const addTaskToPage = (taskArray) => {
   // Ul list = Tasks List
   const taskList = document.querySelector('.tasks-list');
@@ -18,8 +18,7 @@ const addTaskToPage = (taskArray) => {
     taskListSave += taskListHtml;
   });
   taskList.innerHTML = taskListSave;
-
-  completeStateChange(taskArray);
+  // completeStateChange(taskArray);
   addCheckedAttFromStore(taskArray);
 };
 
@@ -52,6 +51,11 @@ const deleteTaskWith = (taskId) => {
   return taskArray;
 };
 
+// delete Item "function"
+const deleteItem = (item) => {
+  item.parentElement.remove();
+};
+
 // Add Task To Array of tasks Function
 const addTaskToArray = (taskText) => {
   // task info
@@ -70,17 +74,17 @@ const addTaskToArray = (taskText) => {
 };
 
 // editing task function
-const editTask = (taskId, e) => {
-  taskArray.forEach((task) => {
+const editTask = (taskId, e, Array = taskArray) => {
+  Array.forEach((task) => {
     if (task.id === +taskId) {
-      const index = taskArray.indexOf(task);
+      const index = Array.indexOf(task);
       // changing the task description and task array
       task.title = e;
-      taskArray[index] = task;
+      Array[index] = task;
     }
   });
   // adding the Updated Tasks Array to local Storage
-  addTaskToStore(taskArray);
+  addTaskToStore(Array);
 };
 
 const clearAllComplete = () => {
@@ -93,5 +97,7 @@ const clearAllComplete = () => {
 export {
   addTaskToArray, addTaskToPage,
   getTaskFromStore, deleteTaskWith,
-  editTask, addTaskToStore, clearAllComplete,
+  editTask, addTaskToStore, clearAllComplete, deleteItem,
 };
+
+// module.exports = addTaskToPage;

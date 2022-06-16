@@ -1,8 +1,9 @@
 import './styles/index.css';
 import './styles/all.min.css';
 import {
-  addTaskToArray, getTaskFromStore, deleteTaskWith, editTask, clearAllComplete,
+  addTaskToArray, getTaskFromStore, deleteTaskWith, editTask, clearAllComplete, deleteItem,
 } from './add-remove.js';
+import { completeStateChange } from './complete';
 
 const input = document.querySelector('.ph');
 const submit = document.querySelector('.enter');
@@ -30,7 +31,8 @@ input.addEventListener('keypress', (e) => {
 taskEvent.addEventListener('click', (e) => {
   if (e.target.classList.contains('fa-trash-can')) {
     // delete from page
-    e.target.parentElement.remove();
+    // e.target.parentElement.remove();
+    deleteItem(e.target);
     // delete from local storage
     deleteTaskWith(e.target.parentElement.getAttribute('task-id'));
   }
@@ -53,8 +55,10 @@ taskEvent.addEventListener('click', (e) => {
 taskEvent.addEventListener('click', (e) => {
   if (e.target.hasAttribute('checked')) {
     e.target.removeAttribute('checked');
+    completeStateChange(JSON.parse(localStorage.getItem('tasks')), e.target);
   } else if (e.target.classList.contains('check-input')) {
     e.target.setAttribute('checked', '');
+    completeStateChange(JSON.parse(localStorage.getItem('tasks')), e.target);
   }
 });
 

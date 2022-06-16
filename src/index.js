@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 import './styles/index.css';
 import './styles/all.min.css';
 import {
@@ -43,10 +44,15 @@ taskEvent.addEventListener('click', (e) => {
   if (e.target.classList.contains('edit')) {
     e.target.addEventListener('blur', (e) => {
       if (e.target.value === '') {
-        deleteTaskWith(e.target.parentElement.parentElement.getAttribute('task-id'));
+        deleteTaskWith(
+          e.target.parentElement.parentElement.getAttribute('task-id')
+        );
         e.target.parentElement.remove();
       } else {
-        editTask(e.target.parentElement.parentElement.getAttribute('task-id'), e.target.value);
+        editTask(
+          e.target.parentElement.parentElement.getAttribute('task-id'),
+          e.target.value
+        );
       }
     });
   }

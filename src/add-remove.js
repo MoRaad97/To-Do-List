@@ -1,5 +1,8 @@
 /* eslint import/no-cycle: [0, { maxDepth: 2 }] */
+
 import { addCheckedAttFromStore, clearFunction } from './complete.js';
+
+
 // TaskArray
 let taskArray = JSON.parse(localStorage.getItem('tasks')) || [];
 
@@ -18,7 +21,6 @@ const addTaskToPage = (taskArray) => {
     taskListSave += taskListHtml;
   });
   taskList.innerHTML = taskListSave;
-  // completeStateChange(taskArray);
   addCheckedAttFromStore(taskArray);
 };
 
@@ -100,4 +102,3 @@ export {
   editTask, addTaskToStore, clearAllComplete, deleteItem,
 };
 
-// module.exports = addTaskToPage;

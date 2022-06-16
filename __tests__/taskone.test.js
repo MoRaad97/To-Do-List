@@ -1,4 +1,4 @@
-import { addTaskToPage, deleteItem } from '../src/add-remove';
+import { addTaskToPage, deleteItem } from '../src/add-remove.js';
 
 describe('Add & Remove One Element Test', () => {
   // Arranged

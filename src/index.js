@@ -2,13 +2,9 @@
 import './styles/index.css';
 import './styles/all.min.css';
 import {
-  addTaskToArray,
-  getTaskFromStore,
-  deleteTaskWith,
-  editTask,
-  clearAllComplete,
-  deleteItem,
+  addTaskToArray, getTaskFromStore, deleteTaskWith, editTask, clearAllComplete, deleteItem,
 } from './add-remove.js';
+import { completeStateChange } from './complete';
 
 const input = document.querySelector('.ph');
 const submit = document.querySelector('.enter');
@@ -65,8 +61,10 @@ taskEvent.addEventListener('click', (e) => {
 taskEvent.addEventListener('click', (e) => {
   if (e.target.hasAttribute('checked')) {
     e.target.removeAttribute('checked');
+    completeStateChange(JSON.parse(localStorage.getItem('tasks')), e.target);
   } else if (e.target.classList.contains('check-input')) {
     e.target.setAttribute('checked', '');
+    completeStateChange(JSON.parse(localStorage.getItem('tasks')), e.target);
   }
 });
 

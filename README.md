@@ -8,7 +8,7 @@
 ## Built With
 
 - Major languages: Html, Css , JS.
-- Frameworks: none.
+- Jest: Test.
 - Technologies used : Webpack, GitHub.
 
 ## Live Demo
@@ -28,6 +28,12 @@ To get a local copy up and running follow these simple steps.
 - GitHub: [@MoRaad97](https://github.com/MoRaad97)
 - Twitter: [@MohammedRaadz](https://twitter.com/MohammedRaadz)
 - LinkedIn: [Mohammed Raad](linkedin.com/in/mohammed-raad-600176210)
+
+👤 **Victor Osagie**
+
+- GitHub: [@efoosag](https://github.com/efoosag)
+- Twitter: [@Victor Osagie](https://www.twitter.com/Victorosagie08)
+- LinkedIn: [@VictorOsagie](https://www.linkedin.com/in/efoosag/)
 
 ## 🤝 Contributing
 
